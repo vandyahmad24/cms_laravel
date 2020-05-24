@@ -19,7 +19,7 @@ class PostTableSeeder extends Seeder
         $posts=[];
         $faker = Factory::create();
         for ($i=1; $i<=10; $i++){
-        	$date = date("Y-m-d H:i:s", strtotime("2020-05-24 22:00:00 + {$i} days"));
+        	$date = date("Y-m-d H:i:s", strtotime("2020-05-21 22:00:00 + {$i} days"));
         	$image = "Post_Image_".rand(1,5).".jpg";
         	$posts[] =[
         		'author_id' => rand(1,3),

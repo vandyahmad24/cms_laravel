@@ -22,4 +22,20 @@ class Post extends Model
     	}
     	return $imageUrl;
     }
+    public function author()
+    {
+    	# satu post milik dari satu user
+    	return $this->belongsTo(User::class);
+    }
+    // membuat mutator
+    
+    public function getDateAttribute($value)
+    {
+    	return $this->created_at->diffForHumans();
+    }
+    // membuat scope
+    public function scopeLatestFirst()
+    {
+    	return $this->orderBy('created_at','desc');
+    }
 }

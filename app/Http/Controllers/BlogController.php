@@ -7,9 +7,13 @@ use App\Post;
 
 class BlogController extends Controller
 {
+	protected $limit = 3;
+	
     public function index()
     {
-    	$posts = Post::all();
+    	// \DB::enableQueryLog();
+    	$posts = Post::with('author')->LatestFirst()->simplePaginate($this->limit);
     	return view('blog.index',compact('posts'));
+    	// dd(\DB::getQueryLog());
     }
 }
