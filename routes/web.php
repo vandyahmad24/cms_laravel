@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [
 	'uses' => 'BlogController@index',
+	'as'   => 'blog',
 ]);
 Route::get('/show', function () {
     return view('blog.show');
